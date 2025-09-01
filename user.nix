@@ -20,6 +20,8 @@
     stylua
     swaylock
     swayidle
+    gcc
+    tree-sitter
   ];
 
   programs.zsh = {
