@@ -23,6 +23,8 @@
     gcc
     tree-sitter
     google-cloud-sdk
+    kubectl
+    k9s
   ];
 
   programs.zsh = {
