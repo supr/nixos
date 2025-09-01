@@ -10,6 +10,16 @@
     ghostty
     nerd-fonts.monoid
     waybar
+    kanshi
+    wl-clipboard
+    fzf
+    ripgrep
+    gnumake
+    fd
+    lua-language-server
+    stylua
+    swaylock
+    swayidle
   ];
 
   programs.zsh = {
@@ -45,4 +55,15 @@
     userName = "Prudhvi Krishna Surapaneni";
     userEmail = "p@nullptr.in";
   };
+
+  services.kanshi = {
+    enable = true;
+  };
+
+  # programs.firefox.preferences = {
+  #   "media.ffmpeg.vaapi.enabled" = true;
+  #   "media.hardware-video-decoding.force-enabled" = true;
+  #   "gfx.x11-egl.force-enabled" = true;
+  #   "widget.dmabuf.force-enabled" = true;
+  # };
 }

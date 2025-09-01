@@ -72,7 +72,10 @@
      shell = pkgs.zsh;
   };
   programs.zsh.enable = true;
-  programs.sway.enable = true;
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
 
   # programs.firefox.enable = true;
 
@@ -127,5 +130,7 @@
   system.stateVersion = "25.05"; # Did you read the comment?
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  security.polkit.enable = true;
 }
 
