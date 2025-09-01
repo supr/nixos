@@ -22,6 +22,7 @@
     swayidle
     gcc
     tree-sitter
+    google-cloud-sdk
   ];
 
   programs.zsh = {
