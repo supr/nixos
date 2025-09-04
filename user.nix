@@ -10,6 +10,7 @@
     ghostty
     nerd-fonts.monoid
     waybar
+    waybar-mpris
     kanshi
     wl-clipboard
     fzf
@@ -48,6 +49,7 @@
     settings = {
       font-family = "Monoid Nerd Font Mono";
       shell-integration = "zsh";
+      background-opacity = "0.90";
     };
   };
 
