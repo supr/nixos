@@ -26,7 +26,26 @@
     google-cloud-sdk
     kubectl
     k9s
+
+    # nix
+    nil
+    nixpkgs-fmt
   ];
+
+  xdg.configFile."kanshi" = {
+    source = config.lib.file.mkOutOfStoreSymlink ./config/kanshi;
+    recursive = true;
+  };
+
+  xdg.configFile."waybar" = {
+    source = config.lib.file.mkOutOfStoreSymlink ./config/waybar;
+    recursive = true;
+  };
+
+  xdg.configFile."sway" = {
+    source = config.lib.file.mkOutOfStoreSymlink ./config/sway;
+    recursive = true;
+  };
 
   programs.zsh = {
     enable = true;

@@ -1,0 +1,14 @@
+profile "work" {
+  output "eDP-1" enable position 5120,0 scale 1.5
+  output "Dell Inc. DELL U2715H H7YCC58S07QL" enable position 2560,0
+  output "Dell Inc. DELL U2715H H7YCC88202KS" enable position 0,0
+  #  output "HDMI-A-1" enable position 0,0
+  #  output "DP-2" enable position 2560,0
+}
+
+profile "laptop" {
+  output "eDP-1" enable position 0,0
+  output "Dell Inc. DELL U2715H H7YCC58S07QL" disable
+  output "Dell Inc. DELL U2715H H7YCC88202KS" disable
+}
+
