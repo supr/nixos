@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.username = "p";
@@ -34,6 +34,17 @@
     # signal
     signal-cli
     signal-desktop
+
+    # font
+    terminus_font_ttf
+
+    # rust
+    cargo
+    rustc
+
+    # zig
+    zig
+    zls
   ];
 
   xdg.configFile."kanshi" = {
@@ -70,7 +81,8 @@
     enable = true;
     enableZshIntegration = true;
     settings = {
-      font-family = "Monoid Nerd Font Mono";
+      # font-family = "Monoid Nerd Font Mono";
+      font-family = "Terminus (TTF)";
       shell-integration = "zsh";
       background-opacity = "0.90";
       theme = "Tomorrow Night Bright";
@@ -83,8 +95,12 @@
 
   programs.git = {
     enable = true;
-    userName = "Prudhvi Krishna Surapaneni";
-    userEmail = "p@nullptr.in";
+    settings = {
+      user = {
+       name = "Prudhvi Krishna Surapaneni";
+       email = "p@nullptr.in";
+      };
+    };
   };
 
   services.kanshi = {
@@ -97,4 +113,10 @@
   #   "gfx.x11-egl.force-enabled" = true;
   #   "widget.dmabuf.force-enabled" = true;
   # };
+
+  imports = [
+    inputs.zen-browser.homeModules.twilight
+  ];
+
+  programs.zen-browser.enable = true;
 }

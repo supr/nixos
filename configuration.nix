@@ -16,8 +16,43 @@
 
   networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.appstream
+  networking.resolvconf.enable = false;
+  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.appstream
+  networking.nameservers = [
+    "1.1.1.1"
+    "9.9.9.9"
+  ];
+
+  networking.networkmanager.ensureProfiles.profiles = {
+   "home-lan" = {
+     connection = {
+      id = "home-lan";
+      type = "ethernet";
+      interface-name = "enp0s31f6";
+
+      autoconnect = true;
+      autoconnect-retries = 0;
+      autoconnect-priority = 100;
+     };
+
+
+     ipv4 = {
+       method = "auto";
+       ignore-auto-dns = true;
+       dns = "1.1.1.1;9.9.9.9";
+     };
+
+     ipv6 = {
+       method = "disabled";
+     };
+   };
+  };
+
+  systemd.services.NetworkManager-ensure-profiles.after = ["NetworkManager.service"];
+  services.resolved.enable = false;
+
+  environment.etc."resolv.conf".source = "/run/NetworkManager/resolv.conf";
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
