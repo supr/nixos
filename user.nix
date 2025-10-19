@@ -30,6 +30,10 @@
     # nix
     nil
     nixpkgs-fmt
+
+    # signal
+    signal-cli
+    signal-desktop
   ];
 
   xdg.configFile."kanshi" = {
@@ -69,6 +73,7 @@
       font-family = "Monoid Nerd Font Mono";
       shell-integration = "zsh";
       background-opacity = "0.90";
+      theme = "Tomorrow Night Bright";
     };
   };
 
